@@ -26,10 +26,7 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_chat_action(action=ChatAction.TYPING)
     logger.info('New message received: {0}'.format(update.message.text))
-    # filter message (allowed digits, alphabet, ",", ":", "/")
-    filtered_msg = "".join([character for character in update.message.text 
-                                        if character.isalnum() or character in ":./"])
-    update.message.reply_text(trace(filtered_msg))
+    update.message.reply_text(trace(update.message.text))
 
 def error(update, context):
     """Log Errors caused by Updates."""
