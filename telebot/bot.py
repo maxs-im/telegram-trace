@@ -1,6 +1,6 @@
-import telebot.credentials as storage
 from telebot.trace import trace
 
+import os
 import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -53,7 +53,7 @@ def main():
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
     try:
-        updater = Updater(storage.TOKEN, use_context=True)
+        updater = Updater(TOKEN = os.environ.get('T_TOKEN', 'empty'), use_context=True)
 
         # Get the dispatcher to register handlers
         set_handlers(updater.dispatcher)
