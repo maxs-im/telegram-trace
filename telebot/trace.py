@@ -1,4 +1,4 @@
-from icmplib import ping, multiping, traceroute, resolve, Host, Hop
+from icmplib import traceroute, Hop
 
 def trace(ip):
     answer = '\ttracerout {0:s}\n'.format(ip)
