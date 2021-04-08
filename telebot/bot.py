@@ -16,15 +16,16 @@ logger = logging.getLogger(__name__)
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Hey this is your bot!')
+    update.message.reply_text('Hey, this is your traceroute bot!')
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Currently I am in Alpha stage, help me also!')
+    update.message.reply_text('Enter desired IP v4/v6 address or domain name and get its traceroute!')
 
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_chat_action(action=ChatAction.TYPING)
+    logger.info('New message received: {0}'.format(update.message.text))
     # filter message (allowed digits, alphabet, ",", ":", "/")
     filtered_msg = "".join([character for character in update.message.text 
                                         if character.isalnum() or character in ":./"])
