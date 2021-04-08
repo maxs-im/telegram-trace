@@ -24,6 +24,7 @@ def help(update, context):
 
 def echo(update, context):
     """Echo the user message."""
+    update.message.reply_chat_action(action=ChatAction.TYPING)
     # filter message (allowed digits, alphabet, ",", ":", "/")
     filtered_msg = "".join([character for character in update.message.text 
                                         if character.isalnum() or character in ":./"])
