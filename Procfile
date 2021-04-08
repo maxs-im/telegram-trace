@@ -1,1 +1,1 @@
-worker: sudo python3 __main__.py
+worker: sudo -E python3 __main__.py
